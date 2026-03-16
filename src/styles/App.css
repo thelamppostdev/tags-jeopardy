@@ -88,12 +88,47 @@ body {
   color: #c8a900;
 }
 
+.score-value-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .score-value {
   font-size: 1.8rem;
   font-weight: 900;
   color: #ffd700;
   text-shadow: 0 0 12px rgba(255,215,0,0.4);
   line-height: 1.1;
+}
+
+.score-delta {
+  position: absolute;
+  top: -1.4em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  font-weight: 900;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: fadeOutUp 1.2s ease forwards;
+}
+
+.score-delta.positive {
+  color: #4cff4c;
+  text-shadow: 0 0 8px rgba(76,255,76,0.5);
+}
+
+.score-delta.negative {
+  color: #ff5555;
+  text-shadow: 0 0 8px rgba(255,85,85,0.5);
+}
+
+@keyframes fadeOutUp {
+  0%   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  60%  { opacity: 1; transform: translateX(-50%) translateY(-6px); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-18px); }
 }
 
 /* ── New Game button ─────────────────────────────────────────────────── */

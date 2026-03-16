@@ -39,6 +39,8 @@ export default function App() {
 
     if (isCorrect) {
       setScore((prev) => prev + activeQuestion.value);
+    } else {
+      setScore((prev) => prev - activeQuestion.value);
     }
 
     setAnswered((prev) => {
