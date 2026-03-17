@@ -56,9 +56,14 @@ body {
   text-transform: uppercase;
 }
 
-.star-icon {
-  font-size: 1.6rem;
+.sheriff-badge {
   filter: drop-shadow(0 0 6px rgba(255,215,0,0.6));
+  flex-shrink: 0;
+  transition: filter 0.3s ease;
+}
+
+.sheriff-badge:hover {
+  filter: drop-shadow(0 0 10px rgba(255,215,0,0.9));
 }
 
 .header-right {
@@ -101,6 +106,12 @@ body {
   color: #ffd700;
   text-shadow: 0 0 12px rgba(255,215,0,0.4);
   line-height: 1.1;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.score-value.negative {
+  color: #ff5555;
+  text-shadow: 0 0 12px rgba(255,85,85,0.4);
 }
 
 .score-delta {

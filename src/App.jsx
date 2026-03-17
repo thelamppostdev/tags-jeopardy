@@ -3,6 +3,7 @@ import Board from './components/Board';
 import QuestionModal from './components/QuestionModal';
 import ScoreDisplay from './components/ScoreDisplay';
 import NewGameButton from './components/NewGameButton';
+import SheriffBadge from './components/SheriffBadge';
 import { buildBoard, pickCategories, VALUES } from './data/questions';
 import './styles/App.css';
 
@@ -59,9 +60,8 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-left">
-          <span className="star-icon">⭐</span>
+          <SheriffBadge size={64} />
           <h1 className="app-title">Mayberry Jeopardy!</h1>
-          <span className="star-icon">⭐</span>
         </div>
         <div className="header-right">
           <ScoreDisplay score={score} />

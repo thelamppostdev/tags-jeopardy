@@ -68,7 +68,7 @@ export default function ScoreDisplay({ score }) {
             {delta > 0 ? '+' : ''}{delta.toLocaleString()}
           </span>
         )}
-        <span className="score-value">${displayedScore.toLocaleString()}</span>
+        <span className={`score-value ${displayedScore < 0 ? 'negative' : ''}`}>${displayedScore.toLocaleString()}</span>
       </div>
     </div>
   );
