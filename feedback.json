@@ -440,5 +440,70 @@
     "correctedAnswer": null,
     "notes": "This isn't really clear what the question is...",
     "timestamp": "2026-03-17T13:33:20.066Z"
+  },
+  {
+    "id": "1773959133633-cx9d9x",
+    "questionId": "music-300-e",
+    "category": "Music & Songs",
+    "value": 300,
+    "originalClue": "The Darlings also perform the traditional song \"Salty Dog\" in their episode \"The Darling Fortune.\" The poetic ballad \"There Is a Time\" was written by these two Dillards members.",
+    "originalAnswer": "Who are Rodney Dillard and Mitch Jayne?",
+    "rating": "needs-work",
+    "correctedClue": null,
+    "correctedAnswer": null,
+    "notes": null,
+    "timestamp": "2026-03-19T22:25:33.633Z"
+  },
+  {
+    "id": "1773959171913-fjcaw4",
+    "questionId": "music-500-a",
+    "category": "Music & Songs",
+    "value": 500,
+    "originalClue": "The lyricist who wrote the words to \"The Fishin' Hole,\" the vocal version of the Andy Griffith Show theme, in 1961.",
+    "originalAnswer": "Who is Everett Sloane?",
+    "rating": "needs-work",
+    "correctedClue": null,
+    "correctedAnswer": null,
+    "notes": "This is not about the show!  It has to be from the plot of the show",
+    "timestamp": "2026-03-19T22:26:11.913Z"
+  },
+  {
+    "id": "1773959330196-ugoctt",
+    "questionId": "music-400-b",
+    "category": "Music & Songs",
+    "value": 400,
+    "originalClue": "The full title of the Andy Griffith Show theme, including its subtitle distinguishing the vocal version from the instrumental.",
+    "originalAnswer": "What is \"The Fishin' Hole (Theme to The Andy Griffith Show)\"?",
+    "rating": "needs-work",
+    "correctedClue": null,
+    "correctedAnswer": null,
+    "notes": "Not about the plot.",
+    "timestamp": "2026-03-19T22:28:50.196Z"
+  },
+  {
+    "id": "1773959554695-ynyltw",
+    "questionId": "opie-500-e",
+    "category": "Opie Taylor",
+    "value": 500,
+    "originalClue": "In \"The Haunted House,\" Opie's friend Arnold was played by this young actor (his full character name).",
+    "originalAnswer": "Who is Arnold (Ronnie Dapo)?",
+    "rating": "needs-work",
+    "correctedClue": null,
+    "correctedAnswer": null,
+    "notes": "This is not about the plot of the show",
+    "timestamp": "2026-03-19T22:32:34.695Z"
+  },
+  {
+    "id": "1773959691759-5c5ow4",
+    "questionId": "fam-500-d",
+    "category": "Friends & Family",
+    "value": 500,
+    "originalClue": "The revolutionary war hero Otis Campbell turns out to be descended from, making the Women's Historical Society want to honor him.",
+    "originalAnswer": "Who is Nathan Tibbs?",
+    "rating": "good",
+    "correctedClue": null,
+    "correctedAnswer": null,
+    "notes": null,
+    "timestamp": "2026-03-19T22:34:51.759Z"
   }
 ]

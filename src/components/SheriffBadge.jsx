@@ -1,4 +1,4 @@
-export default function SheriffBadge({ size = 48 }) {
+export default function SheriffBadge({ size = 48, onClick }) {
   // 5-pointed star: outer radius 46, inner radius 20, centered at (50,50)
   const outerR = 46;
   const innerR = 20;
@@ -20,6 +20,8 @@ export default function SheriffBadge({ size = 48 }) {
       viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
       aria-label="Sheriff Badge"
+      onClick={onClick}
+      style={onClick ? { cursor: 'pointer' } : undefined}
     >
       <defs>
         <radialGradient id="badgeGold" cx="40%" cy="35%" r="60%">
