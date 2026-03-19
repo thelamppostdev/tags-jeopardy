@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { playReveal } from '../sounds';
 
 function FeedbackPanel({ question }) {
   const [notes, setNotes] = useState('');
@@ -103,7 +104,7 @@ export default function QuestionModal({ question, onCorrect, onWrong }) {
             <FeedbackPanel question={question} />
           </>
         ) : (
-          <button className="btn-reveal" onClick={() => setShowAnswer(true)}>
+          <button className="btn-reveal" onClick={() => { playReveal(); setShowAnswer(true); }}>
             Reveal Answer
           </button>
         )}

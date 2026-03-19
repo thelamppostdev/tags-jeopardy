@@ -962,6 +962,22 @@ body {
 }
 
 
+/* ── Mute button ─────────────────────────────────────────────────────── */
+.mute-btn {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(200,169,0,0.4);
+  border-radius: 8px;
+  color: #ffd700;
+  font-size: 1.2rem;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+  line-height: 1;
+}
+.mute-btn:hover {
+  background: rgba(200,169,0,0.15);
+}
+
 /* ── Responsive tweaks ───────────────────────────────────────────────── */
 @media (max-width: 700px) {
   .app {

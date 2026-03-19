@@ -6,6 +6,7 @@ import NewGameButton from './components/NewGameButton';
 import SheriffBadge from './components/SheriffBadge';
 import PlayerSetup from './components/PlayerSetup';
 import { buildBoard, pickCategories, VALUES } from './data/questions';
+import { playQuestionOpen, playCorrect, playWrong, playCelebration, setMuted, isMuted } from './sounds';
 import './styles/App.css';
 
 const TOTAL_QUESTIONS = 6 * VALUES.length;
@@ -19,6 +20,13 @@ export default function App() {
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
   const [celebration, setCelebration] = useState(false);
+  const [muted, setMutedState] = useState(false);
+
+  const toggleMute = () => {
+    const next = !muted;
+    setMuted(next);
+    setMutedState(next);
+  };
 
   const initBoard = useCallback(() => {
     const cats = pickCategories(6);
@@ -46,6 +54,7 @@ export default function App() {
     setPlayers(prev =>
       prev.map(p => ({ ...p, score: Math.floor(Math.random() * 3200) - 200 }))
     );
+    playCelebration();
     setCelebration(true);
   };
 
@@ -55,11 +64,17 @@ export default function App() {
   }, [initBoard]);
 
   const handleSelectQuestion = (question) => {
+    playQuestionOpen();
     setActiveQuestion(question);
   };
 
   const closeModal = (isCorrect) => {
     if (!activeQuestion) return;
+    if (isCorrect) {
+      playCorrect();
+    } else {
+      playWrong();
+    }
 
     setPlayers((prev) => {
       const next = [...prev];
@@ -79,6 +94,7 @@ export default function App() {
       const next = new Set(prev);
       next.add(activeQuestion.id);
       if (next.size === TOTAL_QUESTIONS) {
+        playCelebration();
         setCelebration(true);
       }
       return next;
@@ -107,6 +123,9 @@ export default function App() {
           <h1 className="app-title">Mayberry Jeopardy!</h1>
         </div>
         <div className="header-right">
+          <button className="mute-btn" onClick={toggleMute} title={muted ? 'Unmute' : 'Mute'}>
+            {muted ? '🔇' : '🔊'}
+          </button>
           <NewGameButton onNewGame={startNewGame} />
         </div>
       </header>
