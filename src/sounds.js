@@ -71,18 +71,18 @@ export function playQuestionOpen() {
 export function playReveal() {
   const c = guard(); if (!c) return;
   const now = c.currentTime;
-  // E6, G#6, B6, E7, G#7 — bright and twinkly
-  [1319, 1661, 1976, 2637, 3322].forEach((freq, i) => {
+  // B4, D#5, F#5, B5, D#6 — warmer, mid-register sparkle
+  [494, 622, 740, 988, 1245].forEach((freq, i) => {
     const osc = c.createOscillator();
     const gain = c.createGain();
     osc.connect(gain); gain.connect(c.destination);
     osc.type = 'sine';
-    osc.frequency.setValueAtTime(freq, now + i * 0.055);
-    gain.gain.setValueAtTime(0, now + i * 0.055);
-    gain.gain.linearRampToValueAtTime(0.18, now + i * 0.055 + 0.008);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.055 + 0.18);
-    osc.start(now + i * 0.055);
-    osc.stop(now + i * 0.055 + 0.2);
+    osc.frequency.setValueAtTime(freq, now + i * 0.07);
+    gain.gain.setValueAtTime(0, now + i * 0.07);
+    gain.gain.linearRampToValueAtTime(0.15, now + i * 0.07 + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.07 + 0.28);
+    osc.start(now + i * 0.07);
+    osc.stop(now + i * 0.07 + 0.32);
   });
 }
 
@@ -90,9 +90,9 @@ export function playReveal() {
 export function playCorrect() {
   const c = guard(); if (!c) return;
   const now = c.currentTime;
-  bell(c, 523, now,       0.38, 0.9);  // C5
-  bell(c, 659, now + 0.2, 0.35, 0.9);  // E5
-  bell(c, 784, now + 0.4, 0.4,  1.1);  // G5 — last note rings longest
+  bell(c, 523, now,       0.08, 0.9);  // C5
+  bell(c, 659, now + 0.2, 0.05, 0.9);  // E5
+  bell(c, 784, now + 0.4, 0.1,  1.1);  // G5 — last note rings longest
 }
 
 // 4. Wrong — triple descending "wah wah wah" trombone buzzer
@@ -100,28 +100,20 @@ export function playWrong() {
   const c = guard(); if (!c) return;
   const now = c.currentTime;
 
-  [0, 0.27, 0.54].forEach((offset, i) => {
+  [0, 0.18].forEach((offset) => {
     const osc = c.createOscillator();
-    const filter = c.createBiquadFilter();
     const gain = c.createGain();
-    osc.connect(filter); filter.connect(gain); gain.connect(c.destination);
+    osc.connect(gain); gain.connect(c.destination);
 
-    osc.type = 'sawtooth';
-    filter.type = 'lowpass';
-    filter.Q.value = 3;
-
-    const startFreq = 310 - i * 25;
-    osc.frequency.setValueAtTime(startFreq, now + offset);
-    osc.frequency.exponentialRampToValueAtTime(startFreq * 0.55, now + offset + 0.22);
-
-    filter.frequency.setValueAtTime(1200, now + offset);
-    filter.frequency.exponentialRampToValueAtTime(180, now + offset + 0.22);
+    osc.type = 'triangle';
+    osc.frequency.setValueAtTime(90, now + offset);
 
     gain.gain.setValueAtTime(0, now + offset);
-    gain.gain.linearRampToValueAtTime(0.32, now + offset + 0.015);
-    gain.gain.exponentialRampToValueAtTime(0.001, now + offset + 0.22);
+    gain.gain.linearRampToValueAtTime(3.0, now + offset + 0.008);
+    gain.gain.setValueAtTime(3.0, now + offset + 0.12);
+    gain.gain.exponentialRampToValueAtTime(0.01, now + offset + 0.15);
 
-    osc.start(now + offset); osc.stop(now + offset + 0.25);
+    osc.start(now + offset); osc.stop(now + offset + 0.16);
   });
 }
 
